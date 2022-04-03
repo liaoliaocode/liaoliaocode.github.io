@@ -3,5 +3,18 @@
   
   
   
+  <entry>
+    <title>搭建博客</title>
+    <link href="/2022/04/03/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2022/04/03/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="如何使用Hexo搭建属于自己的博客"><a href="#如何使用Hexo搭建属于自己的博客" class="headerlink" title="如何使用Hexo搭建属于自己的博客"></a>如何使用Hexo搭建属于自己的博客</h1><h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ol><li>GitHub账号</li><li>安装Git</li><li>安装NodeJS</li></ol><h2 id="二、创建仓库"><a href="#二、创建仓库" class="headerlink" title="二、创建仓库"></a>二、创建仓库</h2><p>在GitHub上创建一个新的代码仓库用于保存我们的网页。<br>点击Your repositories，进入仓库页面。<br>填写仓库名，格式必须为&lt;用户名&gt;.github.io，然后点击Create repository</p><img src="/2022/04/03/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/20220403_223333_image.png" class="">]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
   
 </search>
