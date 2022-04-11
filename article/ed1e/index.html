@@ -16,24 +16,22 @@
   <meta name="author" content="Brian.Gao">
   <meta name="keywords" content="Java Oracle Javascript Html Css Shell J2EE JSF Spring Git Web开发 Web建站 Cloud技术 etc.">
   
-    <meta name="description" content="插值表达式： &amp;#123;&amp;#123; &amp;#125;&amp;#125; 可以将vue中的数据填写在插值表达式中 也可以直接填写数值、数组、对象等。 可以填写表达式，但是不能写流程语句。  1234567891011121314151617181920212223242526272829303132333435&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt;">
+    <meta name="description" content="Vue指令：v-bind 属性绑定 v-bind：动态绑定一个或多个特性值，或用:缩写。:后面跟属性名，例如：v-bind:src&#x3D;”imgSrc”  123456789101112131415161718192021222324252627282930313233&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt;		&lt;meta chars">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02-插值表达式">
-<meta property="og:url" content="https://liaoliaocode.xyz/article/d1de/index.html">
+<meta property="og:title" content="04-Vue指令之v-bind">
+<meta property="og:url" content="https://liaoliaocode.xyz/article/ed1e/index.html">
 <meta property="og:site_name" content="聊聊Code的博客">
-<meta property="og:description" content="插值表达式： &amp;#123;&amp;#123; &amp;#125;&amp;#125; 可以将vue中的数据填写在插值表达式中 也可以直接填写数值、数组、对象等。 可以填写表达式，但是不能写流程语句。  1234567891011121314151617181920212223242526272829303132333435&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt;">
+<meta property="og:description" content="Vue指令：v-bind 属性绑定 v-bind：动态绑定一个或多个特性值，或用:缩写。:后面跟属性名，例如：v-bind:src&#x3D;”imgSrc”  123456789101112131415161718192021222324252627282930313233&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt;		&lt;meta chars">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://liaoliaocode.xyz/article/d1de/20220410_190748_image.png">
 <meta property="article:published_time" content="2022-04-10T08:05:24.000Z">
-<meta property="article:modified_time" content="2022-04-11T12:29:10.060Z">
+<meta property="article:modified_time" content="2022-04-11T13:26:28.503Z">
 <meta property="article:author" content="Brian.Gao">
 <meta property="article:tag" content="web前端">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://liaoliaocode.xyz/article/d1de/20220410_190748_image.png">
   
   
-  <title>02-插值表达式 - 聊聊Code的博客</title>
+  <title>04-Vue指令之v-bind - 聊聊Code的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +192,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="02-插值表达式"></span>
+            <span id="subtitle" data-typed-text="04-Vue指令之v-bind"></span>
           
         </div>
 
@@ -217,7 +215,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1k 字
         
       </span>
     
@@ -228,7 +226,7 @@
         
         
         
-          10 分钟
+          9 分钟
         
       </span>
     
@@ -274,23 +272,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">02-插值表达式</h1>
+            <h1 style="display: none">04-Vue指令之v-bind</h1>
             
             <div class="markdown-body">
               
-              <h1 id="插值表达式："><a href="#插值表达式：" class="headerlink" title="插值表达式： "></a>插值表达式： <code class="myCode">&#123;&#123; &#125;&#125;</code></h1><ul>
-<li>可以将vue中的数据填写在插值表达式中</li>
-<li>也可以直接填写数值、数组、对象等。</li>
-<li>可以填写表达式，但是不能写流程语句。</li>
+              <h1 id="Vue指令：v-bind-属性绑定"><a href="#Vue指令：v-bind-属性绑定" class="headerlink" title="Vue指令：v-bind 属性绑定"></a>Vue指令：<code class="myCode">v-bind</code> 属性绑定</h1><ul>
+<li>v-bind：动态绑定一个或多个特性值，或用:缩写。:后面跟属性名，例如：v-bind:src&#x3D;”imgSrc”</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>01_插值表达式<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123; student.id &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123; student.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>				100 * 2 = &#123;&#123; 100*2 &#125;&#125;<br>			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>				&#123;&#123; 1 + 1 === 2 ? &quot;正确&quot; : &quot;错误&quot; &#125;&#125;<br>			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Hello World&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">student</span>: &#123;</span><br><span class="language-javascript">					<span class="hljs-attr">id</span>: <span class="hljs-number">123</span>,</span><br><span class="language-javascript">					<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;张三&quot;</span></span><br><span class="language-javascript">				&#125;</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>浏览器中的显示结果</p>
-<img src="/article/d1de/20220410_190748_image.png" srcset="/img/loading.gif" lazyload class="">
-
-
-<p><code class="myCode">注意：尽量中间加上空格，否则遇到一个对象的时候，会报错。也不能使用未声明的变量。</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Error compiling template --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>&#123;&#123;&#123;a:1&#125;&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>03_Vue指令之v-bind<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>				<span class="hljs-comment">&lt;!-- v-bind 绑定属性--&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">&quot;myhref&quot;</span>&gt;</span>URL链接<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>				<span class="hljs-comment">&lt;!-- v-bind 缩写方式：--&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:href</span>=<span class="hljs-string">&quot;myhref&quot;</span>&gt;</span>URL链接<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>				<span class="hljs-comment">&lt;!-- v-bind 绑定一个对象，key为属性名，value为设定值--&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">&quot;&#123; href:myhref, title:mytitle &#125;&quot;</span>&gt;</span>URL链接<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">myhref</span>: <span class="hljs-string">&quot;http://www.google.com&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">mytitle</span>: <span class="hljs-string">&quot;点击跳转到xxxx页面&quot;</span></span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
 <p><span class="footer">PS：如有任何问题，欢迎在下面评论区留言，让我们共同进步，非常感谢！（^o^）v</span></p>
@@ -347,8 +336,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>02-插值表达式</div>
-      <div>https://liaoliaocode.xyz/article/d1de/</div>
+      <div>04-Vue指令之v-bind</div>
+      <div>https://liaoliaocode.xyz/article/ed1e/</div>
     </div>
     <div class="license-meta">
       
@@ -390,9 +379,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/5623/" title="01-关于Vue.js">
+                      <a href="/article/d1de/" title="02-插值表达式">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">01-关于Vue.js</span>
+                        <span class="hidden-mobile">02-插值表达式</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -400,8 +389,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/ed1e/" title="04-Vue指令之v-bind">
-                        <span class="hidden-mobile">04-Vue指令之v-bind</span>
+                      <a href="/article/9186/" title="03-Vue指令之v-text和v-html">
+                        <span class="hidden-mobile">03-Vue指令之v-text和v-html</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
