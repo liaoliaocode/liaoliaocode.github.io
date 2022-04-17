@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>06-Vue指令之v-on</title>
+    <link href="/article/62a0/"/>
+    <url>/article/62a0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Vue指令：v-on-事件绑定"><a href="#Vue指令：v-on-事件绑定" class="headerlink" title="Vue指令：v-on 事件绑定"></a>Vue指令：<code class="myCode">v-on</code> 事件绑定</h1><ul><li><code class="myCode">v-on</code>：事件监听，并触发绑定的JavaScript代码，可以用<code class="myCode">@</code>简写</li><li>填写多个参数时，可以用<code class="myCode">$event</code>获取事件对象</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>05_Vue指令之v-on<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span> 计数器 ： &#123;&#123; counter &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;count(1)&quot;</span>&gt;</span>增加+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 缩写方式 @事件名 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;count(-1)&quot;</span>&gt;</span>减少-1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;count(null, $event)&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;initBtn&quot;</span>&gt;</span>清零=0<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript"><span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript"><span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript"><span class="hljs-attr">counter</span>: <span class="hljs-number">0</span></span><br><span class="language-javascript">&#125;,</span><br><span class="language-javascript"><span class="hljs-attr">methods</span>: &#123;</span><br><span class="language-javascript"><span class="hljs-attr">count</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">num, e</span>) &#123;</span><br><span class="language-javascript"><span class="hljs-keyword">if</span> (e &amp;&amp; e.<span class="hljs-property">target</span>.<span class="hljs-property">id</span> == <span class="hljs-string">&quot;initBtn&quot;</span>) &#123;</span><br><span class="language-javascript"><span class="hljs-variable language_">this</span>.<span class="hljs-property">counter</span> = <span class="hljs-number">0</span></span><br><span class="language-javascript"><span class="hljs-keyword">return</span></span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"><span class="hljs-variable language_">this</span>.<span class="hljs-property">counter</span> += num;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript">&#125;)</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure><p>浏览器中的显示结果</p><img src="/article/undefined/20220417_184056_image.png" class=""><p><span class="footer">PS：如有任何问题，欢迎在下面评论区留言，让我们共同进步，非常感谢！（^o^）v</span></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>web前端开发</category>
+      
+      <category>Vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>web前端</tag>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>05-Vue指令之v-for</title>
     <link href="/article/8b77/"/>
     <url>/article/8b77/</url>
