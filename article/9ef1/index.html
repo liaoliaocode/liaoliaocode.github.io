@@ -16,24 +16,24 @@
   <meta name="author" content="Brian.Gao">
   <meta name="keywords" content="Java Oracle Javascript Html Css Shell J2EE JSF Spring Git Web开发 Web建站 Cloud技术 etc.">
   
-    <meta name="description" content="Vue指令：v-model 双向绑定 v-model：表单元素的双向数据绑定。数据更新元素会更新、元素更新数据也会更新。 v-model在不同的表单元素上使用 在input和textarea是value的值 在单选框中，为选中的value的值 在复选框中，是一个数组，每一项是选中的value的值 在下拉框中，单选下拉框是选中的option中的值，多选是一个数组，每一项是选中的option中的值">
+    <meta name="description" content="Vue指令：v-on 事件绑定 v-on：事件监听，并触发绑定的JavaScript代码，可以用@简写 填写多个参数时，可以用$event获取事件对象  12345678910111213141516171819202122232425262728293031323334&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt;		&lt;meta charset">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07-Vue指令之v-model">
-<meta property="og:url" content="https://liaoliaocode.xyz/article/d2b/index.html">
+<meta property="og:title" content="07-Vue指令之v-on">
+<meta property="og:url" content="https://liaoliaocode.xyz/article/9ef1/index.html">
 <meta property="og:site_name" content="聊聊Code的博客">
-<meta property="og:description" content="Vue指令：v-model 双向绑定 v-model：表单元素的双向数据绑定。数据更新元素会更新、元素更新数据也会更新。 v-model在不同的表单元素上使用 在input和textarea是value的值 在单选框中，为选中的value的值 在复选框中，是一个数组，每一项是选中的value的值 在下拉框中，单选下拉框是选中的option中的值，多选是一个数组，每一项是选中的option中的值">
+<meta property="og:description" content="Vue指令：v-on 事件绑定 v-on：事件监听，并触发绑定的JavaScript代码，可以用@简写 填写多个参数时，可以用$event获取事件对象  12345678910111213141516171819202122232425262728293031323334&lt;!DOCTYPE html&gt;&lt;html&gt;	&lt;head&gt;		&lt;meta charset">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://liaoliaocode.xyz/article/d2b/20220417_200145_image.png">
+<meta property="og:image" content="https://liaoliaocode.xyz/article/9ef1/20220417_184056_image.png">
 <meta property="article:published_time" content="2022-04-11T09:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-17T12:25:53.597Z">
+<meta property="article:modified_time" content="2022-04-17T17:41:53.486Z">
 <meta property="article:author" content="Brian.Gao">
 <meta property="article:tag" content="web前端">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://liaoliaocode.xyz/article/d2b/20220417_200145_image.png">
+<meta name="twitter:image" content="https://liaoliaocode.xyz/article/9ef1/20220417_184056_image.png">
   
   
-  <title>07-Vue指令之v-model - 聊聊Code的博客</title>
+  <title>07-Vue指令之v-on - 聊聊Code的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="07-Vue指令之v-model"></span>
+            <span id="subtitle" data-typed-text="07-Vue指令之v-on"></span>
           
         </div>
 
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          1.1k 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          22 分钟
+          9 分钟
         
       </span>
     
@@ -274,24 +274,18 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">07-Vue指令之v-model</h1>
+            <h1 style="display: none">07-Vue指令之v-on</h1>
             
             <div class="markdown-body">
               
-              <h1 id="Vue指令：v-model-双向绑定"><a href="#Vue指令：v-model-双向绑定" class="headerlink" title="Vue指令：v-model 双向绑定"></a>Vue指令：<code class="myCode">v-model</code> 双向绑定</h1><ul>
-<li><code class="myCode">v-model</code>：表单元素的双向数据绑定。数据更新元素会更新、元素更新数据也会更新。</li>
-<li><code class="myCode">v-model</code>在不同的表单元素上使用<ul>
-<li>在<code class="myCode">input</code>和<code class="myCode">textarea</code>是<code class="myCode">value</code>的值</li>
-<li>在<code class="myCode">单选框</code>中，为选中的<code class="myCode">value</code>的值</li>
-<li>在<code class="myCode">复选框</code>中，是一个<code class="myCode">数组</code>，每一项是选中的<code class="myCode">value</code>的值</li>
-<li>在<code class="myCode">下拉框</code>中，单选下拉框是选中的<code class="myCode">option</code>中的值，多选是一个<code class="myCode">数组</code>，每一项是选中的<code class="myCode">option</code>中的值</li>
+              <h1 id="Vue指令：v-on-事件绑定"><a href="#Vue指令：v-on-事件绑定" class="headerlink" title="Vue指令：v-on 事件绑定"></a>Vue指令：<code class="myCode">v-on</code> 事件绑定</h1><ul>
+<li><code class="myCode">v-on</code>：事件监听，并触发绑定的JavaScript代码，可以用<code class="myCode">@</code>简写</li>
+<li>填写多个参数时，可以用<code class="myCode">$event</code>获取事件对象</li>
 </ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>06_Vue指令之v-model<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-comment">&lt;!-- 1. 绑定 input text --&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;inputData&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>			※输入的信息是：&#123;&#123; inputData &#125;&#125;<br>			<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>			<span class="hljs-comment">&lt;!-- 2. 绑定 input checkbox --&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;苹果&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;checkSelected&quot;</span>&gt;</span>苹果<br>			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;香蕉&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;checkSelected&quot;</span>&gt;</span>香蕉<br>			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;橘子&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;checkSelected&quot;</span>&gt;</span>橘子<br>			<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>			※选中的结果是：&#123;&#123; checkSelected &#125;&#125;<br>			<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>			<span class="hljs-comment">&lt;!-- 3. 绑定 input radio --&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;吃一个&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;radioSelected&quot;</span>&gt;</span>吃一个<br>			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;吃两个&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;radioSelected&quot;</span>&gt;</span>吃两个<br>			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;吃三个&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;radioSelected&quot;</span>&gt;</span>吃三个<br>			<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>			※选中的结果是：&#123;&#123; radioSelected &#125;&#125;<br>			<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>			<span class="hljs-comment">&lt;!-- 4. 绑定 one select option--&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;selectOptional&quot;</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;China&quot;</span>&gt;</span>中国<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;USA&quot;</span>&gt;</span>美国<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;JAPAN&quot;</span>&gt;</span>日本<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>			※选中的结果是：&#123;&#123; selectOptional &#125;&#125;<br>			<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>			<span class="hljs-comment">&lt;!-- 5. 绑定 multi select option --&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;selectOptionals&quot;</span> <span class="hljs-attr">multiple</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Java&quot;</span>&gt;</span>Java<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;PHP&quot;</span>&gt;</span>PHP<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;C++&quot;</span>&gt;</span>C++<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;VB.net&quot;</span>&gt;</span>VB.net<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Perl&quot;</span>&gt;</span>Perl<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>			※选中的结果是：&#123;&#123; selectOptionals &#125;&#125;<br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">inputData</span>: <span class="hljs-string">&quot;&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">checkSelected</span>: [],</span><br><span class="language-javascript">				<span class="hljs-attr">radioSelected</span>: <span class="hljs-string">&quot;&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">selectOptional</span>: <span class="hljs-string">&quot;&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">selectOptionals</span>: [],</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>05_Vue指令之v-on<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span> 计数器 ： &#123;&#123; counter &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;count(1)&quot;</span>&gt;</span>增加+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>			<span class="hljs-comment">&lt;!-- 缩写方式 @事件名 --&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;count(-1)&quot;</span>&gt;</span>减少-1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;count(null, $event)&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;initBtn&quot;</span>&gt;</span>清零=0<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">counter</span>: <span class="hljs-number">0</span></span><br><span class="language-javascript">			&#125;,</span><br><span class="language-javascript">			<span class="hljs-attr">methods</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">count</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">num, e</span>) &#123;</span><br><span class="language-javascript">					<span class="hljs-keyword">if</span> (e &amp;&amp; e.<span class="hljs-property">target</span>.<span class="hljs-property">id</span> == <span class="hljs-string">&quot;initBtn&quot;</span>) &#123;</span><br><span class="language-javascript">						<span class="hljs-variable language_">this</span>.<span class="hljs-property">counter</span> = <span class="hljs-number">0</span></span><br><span class="language-javascript">						<span class="hljs-keyword">return</span></span><br><span class="language-javascript">					&#125;</span><br><span class="language-javascript">					<span class="hljs-variable language_">this</span>.<span class="hljs-property">counter</span> += num;</span><br><span class="language-javascript">				&#125;</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>浏览器中的显示结果</p>
-<img src="/article/d2b/20220417_200145_image.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/9ef1/20220417_184056_image.png" srcset="/img/loading.gif" lazyload class="">
 
 
 <p><span class="footer">PS：如有任何问题，欢迎在下面评论区留言，让我们共同进步，非常感谢！（^o^）v</span></p>
@@ -348,8 +342,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>07-Vue指令之v-model</div>
-      <div>https://liaoliaocode.xyz/article/d2b/</div>
+      <div>07-Vue指令之v-on</div>
+      <div>https://liaoliaocode.xyz/article/9ef1/</div>
     </div>
     <div class="license-meta">
       
@@ -391,9 +385,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/fade/" title="08-Vue留言板小程序">
+                      <a href="/article/f2d4/" title="08-Vue指令之v-model">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">08-Vue留言板小程序</span>
+                        <span class="hidden-mobile">08-Vue指令之v-model</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -401,8 +395,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/62a0/" title="06-Vue指令之v-on">
-                        <span class="hidden-mobile">06-Vue指令之v-on</span>
+                      <a href="/article/cf33/" title="06-Vue指令之v-for">
+                        <span class="hidden-mobile">06-Vue指令之v-for</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

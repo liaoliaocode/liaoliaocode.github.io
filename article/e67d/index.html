@@ -16,25 +16,24 @@
   <meta name="author" content="Brian.Gao">
   <meta name="keywords" content="Java Oracle Javascript Html Css Shell J2EE JSF Spring Git Web开发 Web建站 Cloud技术 etc.">
   
-    <meta name="description" content="事件修饰符 .prevent 阻止默认事件。 .stop 阻止冒泡行为。 .once 只执行一次，多次点击无效。 .capture 开启事件捕获模式。即事件从上向下依次执行。 .self 只当事件是从侦听器绑定的元素本身触发时才触发回调。 .passive 不阻止默认事件。并要注意不要把 .passive 和 .prevent 一起使用，因为 .prevent 将会被忽略，同时浏览器可能会向你展示">
+    <meta name="description" content="Vue指令：v-if和v-show 显示和隐藏 v-if：控制元素的显示和隐藏，通过对元素的添加和删除。可以作用在template上 v-else-if：控制元素显示和隐藏。前一个兄弟元素必须有v-if v-else：前一个兄弟元素必须有v-if或v-else-if v-show：控制标签的显示和隐藏，通过操作display:none|block属性控制显示和隐藏，v-show对template标">
 <meta property="og:type" content="article">
-<meta property="og:title" content="09-事件修饰符">
-<meta property="og:url" content="https://liaoliaocode.xyz/article/2c83/index.html">
+<meta property="og:title" content="04-Vue指令之v-if和v-show">
+<meta property="og:url" content="https://liaoliaocode.xyz/article/e67d/index.html">
 <meta property="og:site_name" content="聊聊Code的博客">
-<meta property="og:description" content="事件修饰符 .prevent 阻止默认事件。 .stop 阻止冒泡行为。 .once 只执行一次，多次点击无效。 .capture 开启事件捕获模式。即事件从上向下依次执行。 .self 只当事件是从侦听器绑定的元素本身触发时才触发回调。 .passive 不阻止默认事件。并要注意不要把 .passive 和 .prevent 一起使用，因为 .prevent 将会被忽略，同时浏览器可能会向你展示">
+<meta property="og:description" content="Vue指令：v-if和v-show 显示和隐藏 v-if：控制元素的显示和隐藏，通过对元素的添加和删除。可以作用在template上 v-else-if：控制元素显示和隐藏。前一个兄弟元素必须有v-if v-else：前一个兄弟元素必须有v-if或v-else-if v-show：控制标签的显示和隐藏，通过操作display:none|block属性控制显示和隐藏，v-show对template标">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://liaoliaocode.xyz/article/2c83/20220418_012401_image.png">
-<meta property="og:image" content="https://liaoliaocode.xyz/article/2c83/20220418_012556_image.png">
-<meta property="article:published_time" content="2022-04-13T09:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-17T16:41:33.248Z">
+<meta property="og:image" content="https://liaoliaocode.xyz/article/e67d/20220418_022603_image.png">
+<meta property="article:published_time" content="2022-04-08T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-17T17:41:53.467Z">
 <meta property="article:author" content="Brian.Gao">
 <meta property="article:tag" content="web前端">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://liaoliaocode.xyz/article/2c83/20220418_012401_image.png">
+<meta name="twitter:image" content="https://liaoliaocode.xyz/article/e67d/20220418_022603_image.png">
   
   
-  <title>09-事件修饰符 - 聊聊Code的博客</title>
+  <title>04-Vue指令之v-if和v-show - 聊聊Code的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="09-事件修饰符"></span>
+            <span id="subtitle" data-typed-text="04-Vue指令之v-if和v-show"></span>
           
         </div>
 
@@ -206,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-04-13 18:00" pubdate>
-          2022年4月13日 晚上
+        <time datetime="2022-04-08 18:00" pubdate>
+          2022年4月8日 晚上
         </time>
       </span>
     
@@ -218,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.1k 字
         
       </span>
     
@@ -229,7 +228,7 @@
         
         
         
-          12 分钟
+          10 分钟
         
       </span>
     
@@ -275,38 +274,20 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">09-事件修饰符</h1>
+            <h1 style="display: none">04-Vue指令之v-if和v-show</h1>
             
             <div class="markdown-body">
               
-              <h1 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h1><ul>
-<li><code class="myCode">.prevent</code> 阻止默认事件。</li>
-<li><code class="myCode">.stop</code> 阻止冒泡行为。</li>
-<li><code class="myCode">.once</code> 只执行一次，多次点击无效。</li>
-<li><code class="myCode">.capture</code> 开启事件捕获模式。即事件从上向下依次执行。</li>
-<li><code class="myCode">.self</code> 只当事件是从侦听器绑定的元素本身触发时才触发回调。</li>
-<li><code class="myCode">.passive</code> 不阻止默认事件。并要注意不要把 <code class="myCode">.passive</code> 和 <code class="myCode">.prevent</code> 一起使用，因为 <code class="myCode">.prevent</code> 将会被忽略，同时浏览器可能会向你展示一个警告。</li>
-<li><code class="myCode">v-on</code> 中鼠标按钮修饰符：<ul>
-<li><code class="myCode">.left</code> 鼠标左键</li>
-<li><code class="myCode">.right</code> 鼠标右键</li>
-<li><code class="myCode">.middle</code> 鼠标中键</li>
+              <h1 id="Vue指令：v-if和v-show-显示和隐藏"><a href="#Vue指令：v-if和v-show-显示和隐藏" class="headerlink" title="Vue指令：v-if和v-show 显示和隐藏"></a>Vue指令：<code class="myCode">v-if</code>和<code class="myCode">v-show</code> 显示和隐藏</h1><ul>
+<li><code class="myCode">v-if</code>：控制元素的显示和隐藏，通过对元素的添加和删除。可以作用在<code class="myCode">template</code>上</li>
+<li><code class="myCode">v-else-if</code>：控制元素显示和隐藏。前一个兄弟元素必须有<code class="myCode">v-if</code></li>
+<li><code class="myCode">v-else</code>：前一个兄弟元素必须有<code class="myCode">v-if</code>或<code class="myCode">v-else-if</code></li>
+<li><code class="myCode">v-show</code>：控制标签的显示和隐藏，通过操作<code class="myCode">display:none|block</code>属性控制显示和隐藏，<code class="myCode">v-show</code>对<code class="myCode">template</code>标签不起作用，显而易见是因为<code class="myCode">template</code>标签，没有任何意义，也不会渲染到页面中，只是为了方便填写指令出现的。</li>
 </ul>
-</li>
-<li><code class="myCode">v-model</code> 中的修饰符：<ul>
-<li><code class="myCode">.lazy</code> 使用<code class="myCode">change</code>事件而非<code class="myCode">input</code>事件，如果不需要实时更新，则可以用<code class="myCode">.lazy</code></li>
-<li><code class="myCode">.trim</code> 去掉前后的空格</li>
-<li><code class="myCode">.number</code> 因为v-model绑定数据是一个字符串，会将数据中的字符串转为<code class="myCode">number</code>类型</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>08_事件修饰符<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.google.com&quot;</span> @<span class="hljs-attr">click.prevent</span>=<span class="hljs-string">&quot;clickA&quot;</span>&gt;</span>阻止默认事件发生<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clickDiv2&quot;</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> @<span class="hljs-attr">click.stop</span>=<span class="hljs-string">&quot;clickDiv1&quot;</span>&gt;</span><br>					阻止冒泡事件（点击div1时并不会实行div2的方法）<br>				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.once</span>=<span class="hljs-string">&quot;clickOnce&quot;</span>&gt;</span>只能点击一次<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;&#125;,</span><br><span class="language-javascript">			<span class="hljs-attr">methods</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-title function_">clickA</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;点击了链接&quot;</span>)</span><br><span class="language-javascript">				&#125;,</span><br><span class="language-javascript">				<span class="hljs-title function_">clickDiv1</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;点击了div1&quot;</span>)</span><br><span class="language-javascript">				&#125;,</span><br><span class="language-javascript">				<span class="hljs-title function_">clickDiv2</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;点击了div2&quot;</span>)</span><br><span class="language-javascript">				&#125;,</span><br><span class="language-javascript">				<span class="hljs-title function_">clickOnce</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;点击了一次按钮&quot;</span>)</span><br><span class="language-javascript">				&#125;</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>09_Vue指令之v-if和v-show<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;type == &#x27;A&#x27;&quot;</span>&gt;</span> 显示A <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;type == &#x27;B&#x27;&quot;</span>&gt;</span> 显示B <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;type == &#x27;C&#x27;&quot;</span>&gt;</span> 显示C <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else</span>&gt;</span> 显示其他 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">&quot;isShow&quot;</span>&gt;</span><br>				当isShow为false时，这里的内容被隐藏。<br>			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">type</span>: <span class="hljs-string">&quot;C&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">isShow</span>: <span class="hljs-literal">false</span></span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>浏览器中的显示结果</p>
-<img src="/article/2c83/20220418_012401_image.png" srcset="/img/loading.gif" lazyload class="">
-
-
-<p>控制台（console）中的输出结果</p>
-<img src="/article/2c83/20220418_012556_image.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/e67d/20220418_022603_image.png" srcset="/img/loading.gif" lazyload class="">
 
 
 <p><span class="footer">PS：如有任何问题，欢迎在下面评论区留言，让我们共同进步，非常感谢！（^o^）v</span></p>
@@ -363,8 +344,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>09-事件修饰符</div>
-      <div>https://liaoliaocode.xyz/article/2c83/</div>
+      <div>04-Vue指令之v-if和v-show</div>
+      <div>https://liaoliaocode.xyz/article/e67d/</div>
     </div>
     <div class="license-meta">
       
@@ -376,7 +357,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年4月13日</div>
+          <div>2022年4月8日</div>
         </div>
       
       
@@ -406,12 +387,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/article/3c23/" title="05-Vue指令之v-bind">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">05-Vue指令之v-bind</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/fade/" title="08-Vue留言板小程序">
-                        <span class="hidden-mobile">08-Vue留言板小程序</span>
+                      <a href="/article/9186/" title="03-Vue指令之v-text和v-html">
+                        <span class="hidden-mobile">03-Vue指令之v-text和v-html</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
