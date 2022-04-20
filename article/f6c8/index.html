@@ -16,25 +16,25 @@
   <meta name="author" content="Brian.Gao">
   <meta name="keywords" content="Java Oracle Javascript Html Css Shell J2EE JSF Spring Git Web开发 Web建站 Cloud技术 etc.">
   
-    <meta name="description" content="Vue＋Axios获取远端数据并渲染 在Vue项目中，和后台交互获取数据这块，我们通常使用的是axios库，它是基于promise的http库，支持几乎所有主流浏览器（包括IE11）。 axios具有很多优秀的特性，例如 拦截请求和响应、取消请求、自动转换JSON、客户端防御XSRF等。 axios的CDN导入方式： &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;a">
+    <meta name="description" content="Vue全局组件的创建和使用 组件是Vue.js其中一个非常重要的概念，让我们可以使用独立可复用的小组件来构建大型应用。 组件可以扩展HTML元素，封装可重用的HTML代码，我们可以将组件看作自定义的HTML元素。 调用Vue.component()注册组件时，组件的注册是全局的，这意味着该组件可以在任意Vue实例下使用。 在 props 数组中，定义组件的特有属性，也就是props: [&#39;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="11-Vue＋Axios获取远端数据并渲染">
-<meta property="og:url" content="https://liaoliaocode.xyz/article/2758/index.html">
+<meta property="og:title" content="12-Vue全局组件的创建和使用">
+<meta property="og:url" content="https://liaoliaocode.xyz/article/f6c8/index.html">
 <meta property="og:site_name" content="聊聊Code的博客">
-<meta property="og:description" content="Vue＋Axios获取远端数据并渲染 在Vue项目中，和后台交互获取数据这块，我们通常使用的是axios库，它是基于promise的http库，支持几乎所有主流浏览器（包括IE11）。 axios具有很多优秀的特性，例如 拦截请求和响应、取消请求、自动转换JSON、客户端防御XSRF等。 axios的CDN导入方式： &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;a">
+<meta property="og:description" content="Vue全局组件的创建和使用 组件是Vue.js其中一个非常重要的概念，让我们可以使用独立可复用的小组件来构建大型应用。 组件可以扩展HTML元素，封装可重用的HTML代码，我们可以将组件看作自定义的HTML元素。 调用Vue.component()注册组件时，组件的注册是全局的，这意味着该组件可以在任意Vue实例下使用。 在 props 数组中，定义组件的特有属性，也就是props: [&#39;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://liaoliaocode.xyz/article/2758/20220419_021908_image.png">
-<meta property="article:published_time" content="2022-04-15T09:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-18T19:05:47.849Z">
+<meta property="og:image" content="https://liaoliaocode.xyz/article/f6c8/20220421_013632_image.png">
+<meta property="article:published_time" content="2022-04-16T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-20T16:51:11.081Z">
 <meta property="article:author" content="Brian.Gao">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="web前端">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://liaoliaocode.xyz/article/2758/20220419_021908_image.png">
+<meta name="twitter:image" content="https://liaoliaocode.xyz/article/f6c8/20220421_013632_image.png">
   
   
-  <title>11-Vue＋Axios获取远端数据并渲染 - 聊聊Code的博客</title>
+  <title>12-Vue全局组件的创建和使用 - 聊聊Code的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="11-Vue＋Axios获取远端数据并渲染"></span>
+            <span id="subtitle" data-typed-text="12-Vue全局组件的创建和使用"></span>
           
         </div>
 
@@ -206,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-04-15 18:00" pubdate>
-          2022年4月15日 晚上
+        <time datetime="2022-04-16 18:00" pubdate>
+          2022年4月16日 晚上
         </time>
       </span>
     
@@ -218,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          1.6k 字
         
       </span>
     
@@ -229,7 +229,7 @@
         
         
         
-          20 分钟
+          14 分钟
         
       </span>
     
@@ -275,19 +275,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">11-Vue＋Axios获取远端数据并渲染</h1>
+            <h1 style="display: none">12-Vue全局组件的创建和使用</h1>
             
             <div class="markdown-body">
               
-              <h1 id="Vue＋Axios获取远端数据并渲染"><a href="#Vue＋Axios获取远端数据并渲染" class="headerlink" title="Vue＋Axios获取远端数据并渲染"></a>Vue＋Axios获取远端数据并渲染</h1><ul>
-<li>在<code class="myCode">Vue</code>项目中，和后台交互获取数据这块，我们通常使用的是<code class="myCode">axios</code>库，它是基于<code class="myCode">promise</code>的<code class="myCode">http</code>库，支持几乎所有主流浏览器（包括IE11）。</li>
-<li><code class="myCode">axios</code>具有很多优秀的特性，例如 拦截请求和响应、取消请求、自动转换<code class="myCode">JSON</code>、客户端防御XSRF等。</li>
-<li><code class="myCode">axios</code>的<code class="myCode">CDN</code>导入方式： <code>&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code></li>
+              <h1 id="Vue全局组件的创建和使用"><a href="#Vue全局组件的创建和使用" class="headerlink" title="Vue全局组件的创建和使用"></a>Vue全局组件的创建和使用</h1><ul>
+<li>组件是<code class="myCode">Vue.js</code>其中一个非常重要的概念，让我们可以使用独立可复用的<code class="myCode">小组件</code>来构建<code class="myCode">大型应用</code>。</li>
+<li>组件可以扩展HTML元素，封装可重用的HTML代码，我们可以将组件看作<code class="myCode">自定义的HTML元素</code>。</li>
+<li>调用<code class="myCode">Vue.component()</code>注册组件时，组件的注册是<code class="myCode">全局</code>的，这意味着该组件可以在<code class="myCode">任意Vue实例</code>下使用。</li>
+<li>在 <code class="myCode">props</code> 数组中，定义组件的特有属性，也就是<code>props: [&#39;items&#39;]</code>这行代码。</li>
+<li>组件实例的<code class="myCode">作用域是孤立的</code>。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用 <code class="myCode">props</code> 把数据传给子组件。</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Vue＋Axios获取远端数据并渲染<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Vue＋Axios获取远端数据并渲染<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>数据源：https://randomuser.me/api/<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>			获取数据件数：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;resultCount&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;getData&quot;</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clear&quot;</span>&gt;</span>清空<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;600px&quot;</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span> 姓名 <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span> 性别 <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span> 年龄 <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span> email <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>				<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>				<span class="hljs-comment">&lt;!-- 循环遍历 数组对象 --&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;(user, index) in users&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;user.email&quot;</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> &#123;&#123; user.name.first &#125;&#125; &#123;&#123; user.name.last &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> &#123;&#123; user.gender &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> &#123;&#123; user.dob.age &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> &#123;&#123; user.email &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>				<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: red;&quot;</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">&quot;errMsg&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">apiUrl</span>: <span class="hljs-string">&quot;https://randomuser.me/api/&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">resultCount</span>: <span class="hljs-number">5</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">users</span>: [],</span><br><span class="language-javascript">				<span class="hljs-attr">errMsg</span>: <span class="hljs-string">&quot;&quot;</span></span><br><span class="language-javascript">			&#125;,</span><br><span class="language-javascript">			<span class="hljs-attr">methods</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-title function_">getData</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">					<span class="hljs-comment">// axios.get(&#x27;https://randomuser.me/api/?results=5&#x27;)</span></span><br><span class="language-javascript">					axios.<span class="hljs-title function_">get</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">apiUrl</span>, &#123;</span><br><span class="language-javascript">							<span class="hljs-attr">params</span>: &#123;</span><br><span class="language-javascript">								<span class="hljs-attr">results</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">resultCount</span></span><br><span class="language-javascript">							&#125;</span><br><span class="language-javascript">						&#125;)</span><br><span class="language-javascript">						.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;</span><br><span class="language-javascript">							<span class="hljs-variable language_">this</span>.<span class="hljs-property">users</span> = response.<span class="hljs-property">data</span>.<span class="hljs-property">results</span></span><br><span class="language-javascript">						&#125;)</span><br><span class="language-javascript">						.<span class="hljs-title function_">catch</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">							<span class="hljs-variable language_">this</span>.<span class="hljs-property">errMsg</span> = <span class="hljs-string">&quot;现在系统繁忙，请稍后再试。。。&quot;</span></span><br><span class="language-javascript">						&#125;)</span><br><span class="language-javascript">				&#125;,</span><br><span class="language-javascript">				<span class="hljs-title function_">clear</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">					<span class="hljs-variable language_">this</span>.<span class="hljs-property">resultCount</span> = <span class="hljs-number">5</span></span><br><span class="language-javascript">					<span class="hljs-variable language_">this</span>.<span class="hljs-property">users</span> = []</span><br><span class="language-javascript">					<span class="hljs-variable language_">this</span>.<span class="hljs-property">errMsg</span> = <span class="hljs-string">&quot;&quot;</span></span><br><span class="language-javascript">				&#125;</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Vue全局组件的创建和使用<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>			<span class="hljs-comment">&lt;!-- 使用组件，并给组件属性绑定数据 --&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">:items</span>=<span class="hljs-string">&quot;books&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">:items</span>=<span class="hljs-string">&quot;cars&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-comment">&lt;!-- 自定义模板 --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my-component&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items&quot;</span>&gt;</span> &#123;&#123; item.name &#125;&#125; - &#123;&#123; item.price &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/vue.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-comment">// 创建全局组件</span></span><br><span class="language-javascript">		<span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;my-component&#x27;</span>, &#123;</span><br><span class="language-javascript">			<span class="hljs-attr">props</span>: [<span class="hljs-string">&#x27;items&#x27;</span>], <span class="hljs-comment">//定义组件属性</span></span><br><span class="language-javascript">			<span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;#my-component&#x27;</span> <span class="hljs-comment">// 绑定模板</span></span><br><span class="language-javascript">		&#125;);</span><br><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">			<span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="language-javascript">			<span class="hljs-attr">data</span>: &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">books</span>: [&#123;</span><br><span class="language-javascript">						<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;九阴真经&#x27;</span>,</span><br><span class="language-javascript">						<span class="hljs-attr">price</span>: <span class="hljs-number">2000</span></span><br><span class="language-javascript">					&#125;,</span><br><span class="language-javascript">					&#123;</span><br><span class="language-javascript">						<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;九阳真经&#x27;</span>,</span><br><span class="language-javascript">						<span class="hljs-attr">price</span>: <span class="hljs-number">3000</span></span><br><span class="language-javascript">					&#125;,</span><br><span class="language-javascript">					&#123;</span><br><span class="language-javascript">						<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;降龙十八掌&#x27;</span>,</span><br><span class="language-javascript">						<span class="hljs-attr">price</span>: <span class="hljs-number">500</span></span><br><span class="language-javascript">					&#125;,</span><br><span class="language-javascript">				],</span><br><span class="language-javascript">				<span class="hljs-attr">cars</span>: [&#123;</span><br><span class="language-javascript">					<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;特斯拉&#x27;</span>,</span><br><span class="language-javascript">					<span class="hljs-attr">price</span>: <span class="hljs-number">300000</span></span><br><span class="language-javascript">				&#125;, &#123;</span><br><span class="language-javascript">					<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;比亚迪&#x27;</span>,</span><br><span class="language-javascript">					<span class="hljs-attr">price</span>: <span class="hljs-number">200000</span></span><br><span class="language-javascript">				&#125;]</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;)</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>浏览器中的显示结果</p>
-<img src="/article/2758/20220419_021908_image.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/f6c8/20220421_013632_image.png" srcset="/img/loading.gif" lazyload class="">
+
 
 <p><span class="footer">PS：如有任何问题，欢迎在下面评论区留言，让我们共同进步，非常感谢！（^o^）v</span></p>
 
@@ -345,8 +348,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>11-Vue＋Axios获取远端数据并渲染</div>
-      <div>https://liaoliaocode.xyz/article/2758/</div>
+      <div>12-Vue全局组件的创建和使用</div>
+      <div>https://liaoliaocode.xyz/article/f6c8/</div>
     </div>
     <div class="license-meta">
       
@@ -358,7 +361,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年4月15日</div>
+          <div>2022年4月16日</div>
         </div>
       
       
@@ -388,18 +391,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/f6c8/" title="12-Vue全局组件的创建和使用">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">12-Vue全局组件的创建和使用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/c9e4/" title="10-Vue留言板小程序">
-                        <span class="hidden-mobile">10-Vue留言板小程序</span>
+                      <a href="/article/2758/" title="11-Vue＋Axios获取远端数据并渲染">
+                        <span class="hidden-mobile">11-Vue＋Axios获取远端数据并渲染</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
